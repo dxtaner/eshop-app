@@ -22,7 +22,23 @@ const UserSchema = new Schema({
   },
 });
 
+UserSchema.pre("save", async function (next) {
+  try {
+    if (this.isNew) {
+      const salt = await bcrypt.genSalt(10);
+      const hashed = await bcrypt.hash(this.password, salt);
+      this.password = hashed;
+    }
 
+    next();
+  } catch (e) {
+    next(error);
+  }
+});
+
+UserSchema.methods.isValidPass = async function (pass) {
+  return await bcrypt.compare(pass, this.password);
+};
 
 const User = mongoose.model("user", UserSchema);
 
