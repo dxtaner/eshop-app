@@ -47,7 +47,57 @@ function verifyAccessToken(req, res, next) {
   });
 }
 
+function signRefreshToken(user_id) {
+  return new Promise((resolve, reject) => {
+    const payload = {
+      user_id,
+    };
+    const options = {
+      expiresIn: "180d",
+      issuer: "ecommerce.app",
+    };
+
+    JWT.sign(payload, process.env.JWT_REFRESH_SECRET, options, (err, token) => {
+      if (err) {
+        console.log(err);
+        reject(Boom.internal());
+      }
+
+      redis.set(user_id, token, "EX", 180 * 24 * 60 * 60);
+
+      resolve(token);
+    });
+  });
+}
+
+async function verifyRefreshToken(refresh_token) {
+  return new Promise(async (resolve, reject) => {
+    JWT.verify(
+      refresh_token,
+      process.env.JWT_REFRESH_SECRET,
+      async (err, payload) => {
+        if (err) {
+          return reject(Boom.unauthorized());
+        }
+
+        const { user_id } = payload;
+        const user_token = await redis.get(user_id);
+
+        if (!user_token) {
+          return reject(Boom.unauthorized());
+        }
+
+        if (refresh_token === user_token) {
+          return resolve(user_id);
+        }
+      }
+    );
+  });
+}
+
 module.exports = {
   signAccessToken,
   verifyAccessToken,
+  signRefreshToken,
+  verifyRefreshToken,
 };
