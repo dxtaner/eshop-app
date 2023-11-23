@@ -1,0 +1,54 @@
+/* Navbar.css */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 20px;
+}
+
+.menu li {
+    margin-right: 15px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar.css */
+/* Diğer stiller buraya eklenir */
+
+.Button {
+    margin-right: 10px;
+    background-color: #cbdd54;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #085a0e;
+    }
+}
