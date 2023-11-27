@@ -35,6 +35,23 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
 
+          <Route element={<ProtectedRoute />}>
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/my-orders" element={<MyOrder />} />
+          </Route>
+
+          <Route element={<ProtectedRoute admin={true} />}>
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/home" element={<AdminHome />} />
+            <Route path="/admin/orders" element={<AdminOrders />} />
+            <Route path="/admin/products" element={<AdminProducts />} />
+            <Route path="/admin/products/add" element={<AddProduct />} />
+            <Route
+              path="/admin/products/product/:product_id"
+              element={<AdminProductDetail />}
+            />
+          </Route>
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>
