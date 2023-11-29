@@ -1,0 +1,28 @@
+/* alertify.css */
+.ajs-message {
+    background: #2c3e50;
+    color: #ecf0f1;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.ajs-ok,
+.ajs-cancel {
+    background: #004776;
+}
+
+.ajs-cancel {
+    background: #920f00;
+}
+
+.ajs-buttons button {
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #2980b9;
+    border-radius: 3px;
+}
+
+.ajs-buttons button:hover {
+    background: #2980b9;
+}
