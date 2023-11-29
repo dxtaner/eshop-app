@@ -1,0 +1,24 @@
+.admin-menu {
+    list-style: none;
+    padding: 0;
+    background-color: #d3cece;
+    display: flex;
+    margin: 13px;
+}
+
+.admin-menu li {
+    margin: 0;
+}
+
+.admin-menu a {
+    display: block;
+    padding: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.admin-menu a:hover {
+    background-color: #555;
+}
