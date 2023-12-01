@@ -22,7 +22,7 @@ Installation
 
 1.  Clone the repository:
 
-\`\`\`bash git clone https://github.com/your-username/your-project.git \`\`\`
+\`\`\`bash git clone [https://github.com/your-username/your-project.git](https://github.com/dxtaner/eshop-app/tree/main/eshop-app-nodej-reactjs) \`\`\`
 
 2.  Open the `public` folder and double-click on the `index.html` file to view the project in your browser.
 
