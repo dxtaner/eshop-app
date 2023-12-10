@@ -34,7 +34,7 @@ To run the application locally, follow these steps:
 
 ## Contributors
 
-- [Your Name](https://github.com/dtaner) - Developer
+- [Taner](https://github.com/dxtaner) - Developer
 
 ## License
 
